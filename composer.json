@@ -1,0 +1,13 @@
+{
+    "name": "repejota/monolog-nats",
+    "description": "A Monolog NATS handler.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Raül Pérez",
+            "email": "repejota@gmail.com"
+        }
+    ],
+    "require": {}
+}
