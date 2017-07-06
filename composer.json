@@ -9,5 +9,10 @@
             "email": "repejota@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "monolog/monolog": "^1.23"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2"
+    }
 }
