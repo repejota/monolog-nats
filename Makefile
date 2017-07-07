@@ -45,3 +45,6 @@ dist-clean:
 test:
 	./vendor/bin/phpspec run --format=pretty -v
 
+cover:
+	./vendor/bin/coveralls -f clover.xml
+
