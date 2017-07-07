@@ -14,7 +14,9 @@ use Monolog\Formatter\JsonFormatter;
 class NatsHandler extends AbstractProcessingHandler
 {
     /**
-     * @var Connection
+     * Connection to NATS server.
+     *
+     * @var Connection $nats Connection to NATS server.
      */
     private $nats;
 
@@ -33,19 +35,14 @@ class NatsHandler extends AbstractProcessingHandler
     }
 
     /**
-     * {@inheritDoc}
+     * Writes the record down to the log of the implementing handler
+     *
+     * @param  array $record
+     * @return void
      */
     protected function write(array $record)
     {
         $subject = $record['channel'].".".$record['level_name'];
         $this->nats->publish($subject, $record['formatted']);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    protected function getDefaultFormatter()
-    {
-        return new JsonFormatter(JsonFormatter::BATCH_MODE_JSON, false);
     }
 }
