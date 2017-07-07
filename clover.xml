@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1499392086">
-  <project timestamp="1499392086">
+<coverage generated="1499393026">
+  <project timestamp="1499393026">
     <package name="Monolog\Handler">
       <file name="/Users/raul/Projects/monolog-nats/src/Monolog/Handler/NatsHandler.php">
         <class name="NatsHandler" namespace="Monolog\Handler" fullPackage="MonologNats" package="MonologNats">
