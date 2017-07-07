@@ -4,7 +4,6 @@ namespace Monolog\Handler;
 use Nats\Connection;
 
 use Monolog\Logger;
-use Monolog\Formatter\JsonFormatter;
 
 /**
  * Class NatsHandler
@@ -35,6 +34,30 @@ class NatsHandler extends AbstractProcessingHandler
     }
 
     /**
+     * Get the subject of the message to send.
+     *
+     * @param array $record
+     * @return string Message subject.
+     */
+    protected function getSubject(array $record)
+    {
+        print(json_encode($record));
+        $subject = $record['channel'].".".$record['level_name'];
+        return $subject;
+    }
+
+    /**
+     * Get the payload of the messageto send.
+     *
+     * @param array $record
+     * @return mixed
+     */
+    protected function getPayload(array $record)
+    {
+        return $record['formatted'];
+    }
+
+    /**
      * Writes the record down to the log of the implementing handler
      *
      * @param  array $record
@@ -42,7 +65,8 @@ class NatsHandler extends AbstractProcessingHandler
      */
     protected function write(array $record)
     {
-        $subject = $record['channel'].".".$record['level_name'];
-        $this->nats->publish($subject, $record['formatted']);
+        $subject = $this->getSubject($record);
+        $payload = $this->getPayload($record);
+        $this->nats->publish($subject, $payload);
     }
 }

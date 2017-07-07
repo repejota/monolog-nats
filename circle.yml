@@ -1,8 +1,12 @@
 machine:
+  services:
+    - docker
   php:
     version: 7.1.3
 
 test:
+  pre:
+    - make docker-nats
   override:
     - make test
   post:

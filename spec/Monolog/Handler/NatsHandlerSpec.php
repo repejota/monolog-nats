@@ -5,6 +5,9 @@ use Nats\Connection;
 
 use PhpSpec\ObjectBehavior;
 
+use Monolog\Logger;
+use Monolog\Handler\NatsHandler;
+
 class NatsHandlerSpec extends ObjectBehavior
 {
     function let()
@@ -16,5 +19,17 @@ class NatsHandlerSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType('Monolog\Handler\NatsHandler');
+    }
+
+    function it_logs_INFO_message()
+    {
+        $nats = new Connection();
+        $nats->connect();
+
+        $logger = new Logger("monolog-nats-logger");
+        $natsHandler = new NatsHandler($nats);
+        $logger->pushHandler($natsHandler);
+
+        $logger->info("Info log");
     }
 }
