@@ -5,6 +5,8 @@ Monolog handler for sending logs to NATS (http://nats.io). Useful for async reco
 * Develop [![CircleCI](https://circleci.com/gh/repejota/monolog-nats/tree/develop.svg?style=svg)](https://circleci.com/gh/repejota/monolog-nats/tree/develop)
 * Master [![CircleCI](https://circleci.com/gh/repejota/monolog-nats/tree/master.svg?style=svg)](https://circleci.com/gh/repejota/monolog-nats/tree/master)
 
+* Coverage [![Coverage Status](https://coveralls.io/repos/github/repejota/monolog-nats/badge.svg)](https://coveralls.io/github/repejota/monolog-nats)
+
 ## Install
 
 ```bash
