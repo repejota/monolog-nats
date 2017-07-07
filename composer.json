@@ -1,25 +1,25 @@
 {
-    "name": "repejota/monolog-nats",
-    "description": "A Monolog NATS handler.",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Raül Pérez",
-            "email": "repejota@gmail.com"
-        }
-    ],
-    "require": {
-        "monolog/monolog": "^1.23",
-        "repejota/nats": "^0.8.5"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^6.2"
-    },
-    "minimum-stability": "stable",
+  "name": "repejota/monolog-nats",
+  "description": "A Monolog NATS handler.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Raül Pérez",
+      "email": "repejota@gmail.com"
+    }
+  ],
+  "require": {
+    "monolog/monolog": "^1.23",
+    "repejota/nats": "^0.8.5"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "^3.4"
+  },
+  "minimum-stability": "stable",
   "autoload": {
     "psr-4": {
-      "": "src/"
+        "": "src/"
     }
   },
   "homepage": "https://github.com/repejota/monolog-nats"
