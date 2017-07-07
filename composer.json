@@ -14,7 +14,8 @@
     "repejota/nats": "^0.8.5"
   },
   "require-dev": {
-    "phpspec/phpspec": "^3.4"
+    "phpspec/phpspec": "^3.4",
+    "leanphp/phpspec-code-coverage": "^3.1"
   },
   "minimum-stability": "stable",
   "autoload": {
