@@ -10,21 +10,18 @@
         }
     ],
     "require": {
-        "monolog/monolog": "^1.23"
+        "monolog/monolog": "^1.23",
+        "repejota/nats": "^0.8.5"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.2"
     },
     "minimum-stability": "stable",
-    "autoload":{
-        "psr-4":{
-          "MonologNats\\":"src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-          "MonologNats\\Tests\\": "tests/"
-        }
-    },
-    "homepage": "https://github.com/repejota/monolog-nats"
+  "autoload": {
+    "psr-0": {
+      "MonologNats": "src",
+      "MonologNats\\Test": "tests"
+    }
+  },
+  "homepage": "https://github.com/repejota/monolog-nats"
 }
