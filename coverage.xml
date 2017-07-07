@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1499392086">
+  <project timestamp="1499392086">
+    <package name="Monolog\Handler">
+      <file name="/Users/raul/Projects/monolog-nats/src/Monolog/Handler/NatsHandler.php">
+        <class name="NatsHandler" namespace="Monolog\Handler" fullPackage="MonologNats" package="MonologNats">
+          <metrics complexity="3" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="3" elements="10" coveredelements="4"/>
+        </class>
+        <line num="28" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="30" type="stmt" count="1"/>
+        <line num="32" type="stmt" count="1"/>
+        <line num="33" type="stmt" count="1"/>
+        <line num="38" type="method" name="write" visibility="protected" complexity="1" crap="2" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="47" type="method" name="getDefaultFormatter" visibility="protected" complexity="1" crap="2" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <metrics loc="51" ncloc="30" classes="1" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="3" elements="10" coveredelements="4"/>
+      </file>
+    </package>
+    <metrics files="1" loc="51" ncloc="30" classes="1" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="3" elements="10" coveredelements="4"/>
+  </project>
+</coverage>
