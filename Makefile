@@ -17,3 +17,8 @@ dev-deps:
 
 dist-clean:
 	rm -rf $(CLEAN_PATHS)
+
+# Test
+
+test:
+	./vendor/bin/phpspec run --format=pretty -v
