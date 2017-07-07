@@ -1,10 +1,10 @@
 <?php
-namespace MonologNats\Handler;
+namespace Monolog\Handler;
 
 use Nats\Connection;
 
 use Monolog\Logger;
-use Monolog\Handler\AbstractProcessingHandler;
+use Monolog\Formatter\JsonFormatter;
 
 /**
  * Class NatsHandler
@@ -28,14 +28,24 @@ class NatsHandler extends AbstractProcessingHandler
     public function __construct(Connection $nats, $level = Logger::DEBUG, $bubble = true)
     {
         $this->nats = $nats;
+
         parent::__construct($level, $bubble);
     }
 
     /**
-     * @param array $record
+     * {@inheritDoc}
      */
     protected function write(array $record)
     {
-        var_dump($record);
+        $subject = $record['channel'].".".$record['level_name'];
+        $this->nats->publish($subject, $record['formatted']);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    protected function getDefaultFormatter()
+    {
+        return new JsonFormatter(JsonFormatter::BATCH_MODE_JSON, false);
     }
 }

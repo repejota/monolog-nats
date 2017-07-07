@@ -18,9 +18,8 @@
     },
     "minimum-stability": "stable",
   "autoload": {
-    "psr-0": {
-      "MonologNats": "src",
-      "MonologNats\\Test": "tests"
+    "psr-4": {
+      "": "src/"
     }
   },
   "homepage": "https://github.com/repejota/monolog-nats"
