@@ -4,7 +4,6 @@ namespace Monolog\Handler;
 use Nats\Connection;
 
 use Monolog\Logger;
-use Monolog\Formatter\JsonFormatter;
 
 /**
  * Class NatsHandler
