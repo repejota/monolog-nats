@@ -51,7 +51,7 @@ cover:
 	./vendor/bin/coveralls -f clover.xml
 
 docker-nats:
-	docker run --rm -p 8222:8222 -p 4222:4222 -d --name nats-main nats
+	docker run -p 8222:8222 -p 4222:4222 -d --name nats-main nats
 
 phpdoc:
 	$(call require_phar,phpdoc.phar,$(PHPDOCUMENTOR_PHAR_URL))
