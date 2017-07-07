@@ -1,3 +1,4 @@
+PHPCS_PHAR = https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
 COMPOSER_PHAR = https://getcomposer.org/composer.phar
 CLEAN_FILES = composer.phar composer.lock phpdoc.phar phpcs.phar phpcbf.phar .idea
 CLEAN_FOLDERS = bin build cover vendor docs/api
@@ -11,8 +12,16 @@ endef
 # Lint
 
 .PHONY: lint
-lint:
+lint: lint-php lint-psr2
+
+.PHONY: lint-php
+lint-php:
 	find $(SOURCE_CODE_PATHS) -exec php -l {} \;
+
+.PHONY: lint-psr2
+lint-psr2:
+	$(call require_phar,phpcs.phar,$(PHPCS_PHAR))
+	./phpcs.phar --standard=PSR2 --colors -w -s --warning-severity=0 $(SOURCE_CODE_PATHS)
 
 # Dependencies
 
