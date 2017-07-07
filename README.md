@@ -8,7 +8,8 @@ Monolog handler for sending logs to NATS (http://nats.io). Useful for async reco
 composer require repejota/monolog-nats
 ```
 
-This will install this package itself and, [Monolog](https://packagist.org/packages/monolog/monolog), if not yet installed.
+This will install this package itself [Monolog](https://packagist.org/packages/monolog/monolog) 
+and [PHPNAts](https://github.com/repejota/phpnats), if they are not yet installed.
 
 ## Example
 
