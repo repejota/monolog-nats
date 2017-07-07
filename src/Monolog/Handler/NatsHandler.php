@@ -13,6 +13,33 @@ use Monolog\Logger;
 class NatsHandler extends AbstractProcessingHandler
 {
     /**
+     * Prefix used to build the message subject.
+     *
+     * @var string $prefix
+     */
+    private $prefix = "";
+
+    /**
+     * Get the prefix used to build the mesage subject.
+     *
+     * @return string Subject prefix.
+     */
+    public function getPrefix()
+    {
+        return $this->prefix;
+    }
+
+    /**
+     * Get the prefix used to build the mesage subject.
+     *
+     * @param string $prefix Subject prefix.
+     */
+    public function setPrefix($prefix)
+    {
+        $this->prefix = $prefix;
+    }
+
+    /**
      * Connection to NATS server.
      *
      * @var Connection $nats Connection to NATS server.
@@ -41,8 +68,7 @@ class NatsHandler extends AbstractProcessingHandler
      */
     protected function getSubject(array $record)
     {
-        print(json_encode($record));
-        $subject = $record['channel'].".".$record['level_name'];
+        $subject = $this->getPrefix().$record['channel'].".".$record['level_name'];
         return $subject;
     }
 
