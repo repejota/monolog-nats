@@ -2,6 +2,9 @@
 
 Monolog handler for sending logs to NATS (http://nats.io). Useful for async recording those logs on another machine.
 
+* Develop [![CircleCI](https://circleci.com/gh/repejota/monolog-nats/tree/develop.svg?style=svg)](https://circleci.com/gh/repejota/monolog-nats/tree/develop)
+* Master [![CircleCI](https://circleci.com/gh/repejota/monolog-nats/tree/master.svg?style=svg)](https://circleci.com/gh/repejota/monolog-nats/tree/master)
+
 ## Install
 
 ```bash
