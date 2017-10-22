@@ -32,4 +32,18 @@ class NatsHandlerSpec extends ObjectBehavior
 
         $logger->info("Info log");
     }
+
+    function it_logs_INFO_message_with_prefix()
+    {
+        $nats = new Connection();
+        $nats->connect();
+
+        $logger = new Logger("monolog-nats-logger");
+        $natsHandler = new NatsHandler($nats);
+        $logger->pushHandler($natsHandler);
+
+        $natsHandler->setPrefix("prefix");
+
+        $logger->info("Info log");
+    }
 }
