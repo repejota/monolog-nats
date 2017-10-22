@@ -1,10 +1,22 @@
 PHPCS_PHAR = https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
-PHPDOCUMENTOR_PHAR_URL = https://github.com/phpDocumentor/phpDocumentor2/releases/download/v2.9.0/phpDocumentor.phar
 COMPOSER_PHAR = https://getcomposer.org/composer.phar
-CLEAN_FILES = composer.phar composer.lock phpdoc.phar phpcs.phar phpcbf.phar .idea
-CLEAN_FOLDERS = bin build cover vendor docs/api
+PHPDOCUMENTOR_PHAR_URL = https://github.com/phpDocumentor/phpDocumentor2/releases/download/v2.9.0/phpDocumentor.phar
+
+CLEAN_FILES = composer.phar \
+			  composer.lock \
+			  phpdoc.phar \
+			  phpcs.phar \
+			  phpcbf.phar \
+			  .idea
+CLEAN_FOLDERS = bin \
+				build \
+				cover \
+				vendor \
+				docs/api
 CLEAN_PATHS = $(CLEAN_FILES) $(CLEAN_FOLDERS)
+
 SOURCE_CODE_PATHS = src
+
 API_DOCS_PATH = ./docs/api
 
 define require_phar
@@ -55,7 +67,10 @@ docker-nats:
 
 phpdoc:
 	$(call require_phar,phpdoc.phar,$(PHPDOCUMENTOR_PHAR_URL))
-	./phpdoc.phar -d ./src/ -t $(API_DOCS_PATH) --template=checkstyle --template=responsive-twig
+	./phpdoc.phar -d ./src/ \
+		-t $(API_DOCS_PATH) \
+		--template=checkstyle \
+		--template=responsive-twig
 
 serve-phpdoc:
 	cd $(API_DOCS_PATH) && php -S localhost:8000 && cd ../..
