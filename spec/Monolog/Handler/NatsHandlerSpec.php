@@ -21,7 +21,17 @@ class NatsHandlerSpec extends ObjectBehavior
         $this->shouldHaveType('Monolog\Handler\NatsHandler');
     }
 
-    function it_logs_INFO_message()
+    function it_has_blank_prefix_by_default() {
+        $this->getPrefix()->shouldBeLike("");
+    }
+
+    function it_allows_to_set_a_prefix_string() {
+        $expected_prefix = "foo-";
+        $this->setPrefix($expected_prefix);
+        $this->getPrefix()->shouldBeLike($expected_prefix);
+    }
+
+    function it_logs_an_INFO_message()
     {
         $nats = new Connection();
         $nats->connect();
@@ -33,7 +43,7 @@ class NatsHandlerSpec extends ObjectBehavior
         $logger->info("Info log");
     }
 
-    function it_logs_INFO_message_with_prefix()
+    function it_logs_an_INFO_message_with_prefix()
     {
         $nats = new Connection();
         $nats->connect();
