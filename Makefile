@@ -27,6 +27,7 @@ endef
 
 .PHONY: lint
 lint: lint-php lint-psr2
+lint: 	## Lint source code with PHP and PSR2 profiles
 
 .PHONY: lint-php
 lint-php:
@@ -39,24 +40,25 @@ lint-psr2:
 
 # Dependencies
 
-deps:
+deps:	## Install dependencies	
 	$(call require_phar,composer.phar,$(COMPOSER_PHAR))
 	./composer.phar install --no-dev
 
-dev-deps:
+dev-deps: deps	
 	$(call require_phar,composer.phar,$(COMPOSER_PHAR))
 	./composer.phar install
 
 # Clean
 
 clean: dist-clean
+clean:	## Clean distribution and build interrmediate files
 
 dist-clean:
 	rm -rf $(CLEAN_PATHS)
 
 # Test
 
-test:
+test:	## Exercute tests suite
 	./vendor/bin/phpspec run --format=pretty -v
 
 cover:
@@ -74,4 +76,7 @@ phpdoc:
 
 serve-phpdoc:
 	cd $(API_DOCS_PATH) && php -S localhost:8000 && cd ../..
+
+include Makefile.help.mk
+
 
